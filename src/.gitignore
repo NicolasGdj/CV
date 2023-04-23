@@ -204,5 +204,4 @@ fabric.properties
 .idea/modules.xml
 config.js.tmp
 
-public/semantic/*
 config.js
