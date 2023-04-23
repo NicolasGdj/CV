@@ -55,7 +55,7 @@ module.exports = [
     description:
       "Le site web sur lequel vous vous trouvez actuellement, présentant mon curriculum vitae ainsi que mes projets personnels.",
     type: "Application Web",
-    url: "https://nicolas.guerroudj.fr",
+    url: "#index",
     src: "//github.com/NicolasGdj/CV",
     image: "cv.png",
     year: 2023,
