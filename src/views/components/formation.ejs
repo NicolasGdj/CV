@@ -1,0 +1,69 @@
+<h1 class="ui huge header">Formations</h1>
+
+<div id="formation-content">
+  <div style="display: inline-flex !important">
+    <img class="ui centered tiny image" src="/assets/images/Ingenieur.png" />
+    <h2 class="centered aligned ui header vertically">Ingénieur</h2>
+  </div>
+  <div id="formation-arrow-top"></div>
+  <div id="formation-arrow"></div>
+
+  <% formations.forEach( (formation, index) => { %> <% if( index % 2 === 0 ) { %>
+
+  <div class="formation data">
+    <div class="left">
+      <h1><%=formation.name%></h1>
+      <% if (formation.description !== "") { %>
+      <p><%= formation.description %></p>
+      <% } %>
+      <div class="competences">
+        <% formation.tags.forEach( (tag) => { %> <span class="competence"><%= tag %></span><% }); %>
+      </div>
+      <div class="secondary">
+        <% formation.mentions.forEach((mention) => { %>
+        <img class="ui image tiny" src="<%= mention.image %>" />
+        <h3><%=mention.title%></h3>
+        <% }) %>
+      </div>
+    </div>
+
+    <div class="circle"></div>
+
+    <div class="right">
+      <% if(formation.date.begin === formation.date.end) {%>
+      <h2 class="date"><%= formation.date.begin %></h2>
+      <% } else { %>
+      <h2 class="date"><%= formation.date.begin %> à <%= formation.date.end %></h2>
+      <% } %>
+    </div>
+  </div>
+  <% } else { %>
+  <div class="formation data">
+    <div class="left">
+      <% if(formation.date.begin === formation.date.end) {%>
+      <h2 class="date"><%= formation.date.begin %></h2>
+      <% } else { %>
+      <h2 class="date"><%= formation.date.begin %> à <%= formation.date.end %></h2>
+      <% } %>
+    </div>
+
+    <div class="circle"></div>
+
+    <div class="right">
+      <h1><%=formation.name%></h1>
+      <% if (formation.description !== "") { %>
+      <p><%= formation.description %></p>
+      <% } %>
+      <div class="competences">
+        <% formation.tags.forEach( (tag) => { %> <span class="competence"><%= tag %></span><% }); %>
+      </div>
+      <div class="secondary">
+        <% formation.mentions.forEach((mention) => { %>
+        <img class="ui image tiny" src="<%= mention.image %>" />
+        <h3><%=mention.title%></h3>
+        <% }) %>
+      </div>
+    </div>
+  </div>
+  <% }}); %>
+</div>

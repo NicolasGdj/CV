@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="/assets/semantic/semantic.min.css" />
+    <link rel="stylesheet" href="/assets/css/style.css" />
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+    <script src="/assets/semantic/semantic.js"></script>
+    <script src="/assets/js/jQWCloud.js"></script>
+    <title>Nicolas GUERROUDJ</title>
+  </head>
+  <body>
+    <div id="index" class="ui inverted pane vertical masthead center aligned segment">
+      <%- include('components/header');%>
+    </div>
+    <div id="main-menu" class="ui text container"><%- include('components/navbar'); %></div>
+
+    <div id="presentation" class="ui vertical pane center aligned segment">
+      <%- include('components/presentation'); %>
+    </div>
+
+    <div id="experiences" class="ui vertical pane center aligned segment">
+      <%- include('components/experience'); %>
+    </div>
+
+    <div id="formation" class="ui vertical pane center aligned segment">
+      <%- include('components/formation'); %>
+    </div>
+
+    <div id="projets" class="ui vertical pane center aligned segment">
+      <%- include('components/project'); %>
+    </div>
+
+    <div id="competences" class="ui vertical pane center aligned segment">
+      <%- include('components/competence'); %>
+    </div>
+
+    <script src="/assets/js/script.js"></script>
+  </body>
+</html>

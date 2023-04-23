@@ -1,0 +1,52 @@
+<h1 class="ui huge header">Experiences</h1>
+
+<div id="experience-content">
+  <div id="experience-arrow-top"></div>
+  <div id="experience-arrow"></div>
+
+  <% experiences.forEach( (experience, index) => { %> <% if( index % 2 === 0 ) { %>
+  <div class="experience data">
+    <div class="left">
+      <% if(experience.date.begin === experience.date.end) {%>
+      <h2 class="date"><%= experience.date.begin %></h2>
+      <% } else { %>
+      <h2 class="date"><%= experience.date.begin %> à <%= experience.date.end %></h2>
+      <% } %>
+    </div>
+    <div class="circle"></div>
+    <div class="right">
+      <h1><%= experience.name %> - <%= experience.company %></h1>
+      <p>
+        <% experience.descriptions.forEach( (description) => { %> <%= description %> <br />
+        <% }); %>
+      </p>
+      <div class="competences">
+        <% experience.tags.forEach( (tag) => { %>
+        <span class="competence"><%= tag %></span><% }); %>
+      </div>
+    </div>
+  </div>
+  <% } else { %>
+  <div class="experience data">
+    <div class="left">
+      <h1><%= experience.name %> - <%= experience.company %></h1>
+      <p>
+        <% experience.descriptions.forEach( (description) => { %> <%= description %> <br />
+        <% }); %>
+      </p>
+      <div class="competences">
+        <% experience.tags.forEach( (tag) => { %>
+        <span class="competence"><%= tag %></span><% }); %>
+      </div>
+    </div>
+    <div class="circle"></div>
+    <div class="right">
+      <% if(experience.date.begin === experience.date.end) {%>
+      <h2 class="date"><%= experience.date.begin %></h2>
+      <% } else { %>
+      <h2 class="date"><%= experience.date.begin %> à <%= experience.date.end %></h2>
+      <% } %>
+    </div>
+  </div>
+  <% }}); %>
+</div>

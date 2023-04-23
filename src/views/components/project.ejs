@@ -1,0 +1,39 @@
+<h1 class="ui huge header">Projets</h1>
+<div class="ui link cards">
+  <% projects.forEach( (project) => { %>
+  <div class="card">
+    <div class="blurring dimmable image">
+      <div class="ui dimmer">
+        <div class="content">
+          <div class="center">
+            <% if ( project.up ) { %>
+            <button onclick="window.open('<%= project.url %>');" class="ui inverted button">
+              Voir
+            </button>
+            <% } %>
+            <button onclick="window.open('<%= project.src %>');" class="ui inverted button">
+              GitHub
+            </button>
+          </div>
+        </div>
+      </div>
+      <img src="/assets/images/projects/<%= project.image %>" />
+    </div>
+    <div class="content">
+      <div class="header"><%= project.name %></div>
+      <div class="meta">
+        <a><%= project.type %></a>
+      </div>
+      <div class="description"><%= project.description %></div>
+    </div>
+    <div class="extra content">
+      <span class="right floated">Réalisé en <%= project.year %></span>
+      <span class="left floated">
+        <% project.tags.forEach( (tag) => { %>
+        <div class="ui label"><%= tag %></div>
+        <% }) %>
+      </span>
+    </div>
+  </div>
+  <% }); %>
+</div>
