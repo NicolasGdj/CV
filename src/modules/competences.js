@@ -7,6 +7,20 @@ module.exports = [
         description:
           "Langage de programmation orienté objet, couramment utilisé pour le développement d'applications d'entreprise.",
         url: "https://www.oracle.com/java/",
+        related: ["JavaFX", "Java Spring Boot"],
+      },
+      {
+        name: "Java Spring Boot",
+        description:
+          "Framework pour la réalisation d'application Java (Server, Configuration automatique, Injection de dépendance).",
+        url: "https://spring.io/projects/spring-boot/",
+        related: ["Java"],
+      },
+      {
+        name: "Clojure",
+        description:
+          "Langage de programmation fonctionnel compilé et transpilé vers du bytecode Java. Une grande interopérabilité avec Java est possible.",
+        url: "https://clojure.org/",
         related: ["JavaFX"],
       },
       {
@@ -59,7 +73,7 @@ module.exports = [
       },
       {
         name: "Groovy",
-        description: "Langage de programmation orienté objet destiné à la plate-forme Java",
+        description: "Langage de programmation orienté objet destiné à la plate-forme Jenkins",
         url: "https://groovy-lang.org/",
         related: ["Jenkins", "Java"],
       },

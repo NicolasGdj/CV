@@ -1,5 +1,17 @@
 module.exports = [
   {
+    name: "Ingénieur en développement logiciel Senior",
+    company: "Michelin",
+    date: {
+      begin: "2023",
+      end: "now",
+    },
+    descriptions: [
+      "Développement d'une plateforme visant à offrir des capacités génériques pour la réalisation de systèmes référentiels.",
+    ],
+    tags: ["Java", "Clojure", "Java Spring Boot", "Jira"],
+  },
+  {
     name: "Apprenti Ingénieur en développement logiciel",
     company: "Hewlett Packard Enterprise",
     date: {
