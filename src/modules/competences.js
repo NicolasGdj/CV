@@ -103,6 +103,14 @@ module.exports = [
         url: "https://fr.wikipedia.org/wiki/UML_(informatique)",
         related: ["Conception"],
       },
+      {
+        name: "i18n",
+        alias: ["Internationalisation", "Locale"],
+        description:
+          "Internationalisation: Adaptation d'un produit (logiciel, site web, etc.) à différentes langues et régions.",
+        url: "https://fr.wikipedia.org/wiki/Internationalisation_et_localisation",
+        related: [],
+      },
     ],
   },
   {

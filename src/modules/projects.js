@@ -72,4 +72,15 @@ module.exports = [
     year: 2023,
     tags: ["C#", "Unity"],
   },
+  {
+    name: "PDF Tools",
+    description:
+      "Un ensemble d'outils permettant la modification de PDF (Joindre, Diviser, Réorganiser, etc.). Après traitement, aucun fichier n'est conservé sur le serveur.",
+    type: "Jeu",
+    url: "https://pdf.nicolas.guerroudj.fr",
+    src: "//github.com/NicolasGdj/PdfTools/",
+    image: "pdftools.webp",
+    year: 2024,
+    tags: ["NodeJS", "EJS", "i18n"],
+  },
 ];
