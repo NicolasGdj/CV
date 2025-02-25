@@ -8,11 +8,11 @@
           <div class="center">
             <% if ( project.up ) { %>
             <button onclick="window.open('<%= project.url %>');" class="ui inverted button">
-              Voir
+              <%= (project.buttons && project.buttons.see) || "Voir" %>
             </button>
             <% } %>
             <button onclick="window.open('<%= project.src %>');" class="ui inverted button">
-              GitHub
+              <%= (project.buttons && project.buttons.source) || "GitHub" %>
             </button>
           </div>
         </div>

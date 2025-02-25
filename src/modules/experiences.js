@@ -1,10 +1,22 @@
 module.exports = [
   {
+    name: "Business Application Engineer",
+    company: "CDS, a Hewlett Packard Enterprise Company",
+    date: {
+      begin: "2024",
+      end: "now",
+    },
+    descriptions: [
+      "Développement d'une Network Function 5G responsable de la gestion des données utilisateurs",
+    ],
+    tags: ["Java", "Java Spring Boot", "Maven", "Bash", "Kubernetes", "Jira"],
+  },
+  {
     name: "Ingénieur en développement logiciel Senior",
     company: "Michelin",
     date: {
       begin: "2023",
-      end: "now",
+      end: "2024",
     },
     descriptions: [
       "Développement d'une plateforme visant à offrir des capacités génériques pour la réalisation de systèmes référentiels.",

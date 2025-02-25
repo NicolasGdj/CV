@@ -35,8 +35,11 @@ module.exports = [
     name: "GladOS",
     description: "Système d'exploitation dont le shell est inspiré de Glados du jeu Portal",
     type: "Système d'exploitation",
-    url: "",
+    url: "https://www.youtube.com/watch?v=RgJ948pzJxw",
     src: "//github.com/NicolasGdj/GladOS",
+    buttons: {
+      see: "Vidéo",
+    },
     image: "glados.png",
     year: 2022,
     tags: ["C"],
@@ -45,7 +48,11 @@ module.exports = [
     name: "TwoNotes",
     description: "Application mobile permettant la prise de note collaborative",
     type: "Application Mobile",
+    url: "https://www.youtube.com/watch?v=Y7Bk75WKeDg",
     src: "//github.com/NicolasGdj/TwoNotes",
+    buttons: {
+      see: "Vidéo",
+    },
     image: "twonotes.png",
     year: 2022,
     tags: ["React Native"],
@@ -71,6 +78,36 @@ module.exports = [
     image: "chromalight.png",
     year: 2023,
     tags: ["C#", "Unity"],
+  },
+  {
+    name: "Folina - CVE-2022-30190",
+    description:
+      "Démonstration de l'exploitation de la CVE-2022-30190, plus connu sous le nom de 'Folina', dans un environnement contrôlé.",
+    type: "Securité",
+    url: "https://www.youtube.com/watch?v=4MQwFDLHrnw",
+    src: "/assets/projects/follina.pdf",
+    buttons: {
+      see: "Vidéo",
+      source: "Rapport",
+    },
+    image: "follina.jpg",
+    year: 2023,
+    tags: ["Vagrant", "VirtualBox", "CVE"],
+  },
+  {
+    name: "Jenkins - CVE-2022-43407",
+    description:
+      "Démonstration de l'exploitation de la CVE-2022-43407: une CSRF sur le plugin Jenkins 'Pipeline: Step Input'.",
+    type: "Securité",
+    url: "https://www.youtube.com/watch?v=rqX6ExYomxk",
+    src: "/assets/projects/cve-jenkins.pdf",
+    buttons: {
+      see: "Vidéo",
+      source: "Rapport",
+    },
+    image: "cve-jenkins.jpg",
+    year: 2023,
+    tags: ["Docker", "Jenkins", "CVE"],
   },
   {
     name: "PDF Tools",
