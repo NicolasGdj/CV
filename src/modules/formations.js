@@ -1,13 +1,13 @@
 module.exports = [
   {
-    name: "ENSIMAG - Alternance",
-    description: "",
+    name: "ENSIMAG",
+    description: "Alternance (HPE)",
     date: {
       begin: "2020",
       end: "2023",
     },
     tags: ["C", "Java", "Python", "Algorithmique", "NoSQL"],
-    mentions: [],
+    mentions: [{ image: "/assets/images/gold-medal.png", title: "Major de promotion" }],
   },
   {
     name: "TOEIC",
@@ -20,8 +20,8 @@ module.exports = [
     mentions: [],
   },
   {
-    name: "IUT Informatique - Alternance",
-    description: "",
+    name: "IUT Informatique",
+    description: "Alternance (SuperSonic Imagine)",
     date: {
       begin: "2018",
       end: "2020",
