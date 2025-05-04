@@ -13,11 +13,14 @@ let commands = [
   ]
 
   function help(_) {
-    term.writeln("Available commands:");
+    term.writeln("");
+
+    term.writeln(`${GREEN}${BOLD}Discover all my journey with the following commands:${RESET}`);
+
     let maxCommandLength = Math.max(...commands.map(cmd => cmd.name.length));
     console.log(maxCommandLength);
     commands.forEach((command) => {
-      term.writeln(`  ${command.name}${" ".repeat(maxCommandLength-command.name.length)} : ${command.description}`);
+      term.writeln(`${YELLOW}  ${command.name}${" ".repeat(maxCommandLength-command.name.length)} ${RESET}:${ITALIC} ${command.description}${RESET}`);
     });
     return null;
   };
@@ -48,20 +51,21 @@ let commands = [
 
   function contact(_) {
     term.writeln("");
-    term.writeln("Contact me at: ");
+    term.writeln(`${GREEN}${BOLD}Contact me at: ${RESET}`);
     term.writeln("  - Email: nicolas@guerroudj.fr");
     term.writeln("  - LinkedIn: https://www.linkedin.com/in/nicolas-guerroudj/");
     term.writeln("");
-    term.writeln("Download my CV: ");
+    term.writeln(`${GREEN}${BOLD}Download my CV: ${RESET}` );
     term.writeln("  - [FR](https://nicolas.guerroudj.fr/assets/CV%20-%20FR.pdf)");
     term.writeln("  - [EN](https://nicolas.guerroudj.fr/assets/CV%20-%20EN.pdf)");
+    term.writeln("");
     return null;
   }
  
   function cat(args) {
     console.log("cat", args);
     if (args.length !== 1) {
-      term.writeln("Usage: cat <file>");
+      term.writeln(RED + "Usage: cat <file>" + RESET);
       return;
     }
 
@@ -70,15 +74,15 @@ let commands = [
     let dirPath = absolutePath.split("/").slice(0, -1).join("/");
     let dir = getDir(dirPath);
     if (!dir) {
-      term.writeln("Directory not found.");
+      term.writeln(RED + "Directory not found." + RESET);
       return null;
     }
     if (!dir.fs.content[file]) {
-      term.writeln("File not found.");
+      term.writeln(RED + "File not found." + RESET);
       return null;
     }
     if (dir.fs.content[file].type !== "file") {
-      term.writeln("Not a file.");
+      term.writeln(RED + "Not a file." + RESET);
       return null;
     }
     
@@ -89,16 +93,15 @@ let commands = [
 
   function cd(args) {
     if (args.length !== 1) {
-      term.writeln("Usage: cd <directory>");
+      term.writeln(RED + "Usage: cd <directory>");
       return null;
     }
 
     let dir = getDir(args[0]);
     if (dir === null) {
-      term.writeln("Directory not found.");
+      term.writeln(RED + "Directory not found.");
       return null;
     }
-    console.log("dir", dir);
     path = dir.path;
     currentDir = dir.fs;
     return null;
@@ -121,7 +124,7 @@ let commands = [
     } else {
       let dir = getDir(args[0]);
       if (dir === null) {
-        term.writeln("Directory not found.");
+        term.writeln(RED + "Directory not found." + RESET);
         return null;
       }
       printLs(dir.fs);
@@ -132,34 +135,34 @@ let commands = [
   function showEducations(args) {
     term.writeln("");
     let maxBeginDateLength = Math.max(...formations.map(edu => edu.date.begin.length));
-    term.writeln(" ".repeat(maxBeginDateLength + 4) + "|");
-    for (let education of formations.reverse()) {
-      term.writeln(" ".repeat(maxBeginDateLength + 4) + "|");
+    term.writeln(" ".repeat(maxBeginDateLength + 4) + BLUE + BOLD + "|" + RESET);
+    for (let education of formations.toReversed()) {
+      term.writeln(" ".repeat(maxBeginDateLength + 4) + BLUE + BOLD + "|" + RESET);
       let beginDate = education.date.begin;
       let endDate = education.date.end;
       if (endDate === "") {
         endDate = "now";
       }
-      term.writeln(" ".repeat(maxBeginDateLength - beginDate.length + 1) + beginDate + " - o -> " + endDate);
-      term.writeln(" ".repeat(maxBeginDateLength + 4) + "|");
+      term.writeln(" ".repeat(maxBeginDateLength - beginDate.length + 1) + YELLOW + BOLD + beginDate + RESET + YELLOW +  " - " + BLUE + BOLD + "o " + RESET + YELLOW + "-> " + BOLD + endDate + RESET);
+      term.writeln(" ".repeat(maxBeginDateLength + 4) + BLUE + BOLD + "|" + RESET);
     
-      term.writeln(" ".repeat(maxBeginDateLength + 4) + "|    " + education.name);
-      term.writeln(" ".repeat(maxBeginDateLength + 4) + "|    " + education.description);
+      term.writeln(" ".repeat(maxBeginDateLength + 4) + BLUE + BOLD + "|    " + RESET + BLUE + BOLD + education.name);
+      term.writeln(" ".repeat(maxBeginDateLength + 4) + BLUE + BOLD + "|    " + RESET + education.description);
       if(education.mentions.length > 0) {
-        term.writeln(" ".repeat(maxBeginDateLength + 4) + "|");
-        term.writeln(" ".repeat(maxBeginDateLength + 4) + "|    Mentions: {"+education.mentions.length+"}");
+        term.writeln(" ".repeat(maxBeginDateLength + 4) + BLUE + BOLD + "|" + RESET);
+        term.writeln(" ".repeat(maxBeginDateLength + 4) + BLUE + BOLD + "|    "+ RESET +"Mentions: "+RED+"{"+education.mentions.length+"}" + RESET);
         for(let mention of education.mentions) {
-          term.writeln(" ".repeat(maxBeginDateLength + 4) + "|      " + mention.title);
+          term.writeln(" ".repeat(maxBeginDateLength + 4) + BLUE + BOLD + "|      " + RESET + mention.title);
         }
       }
       if(education.tags.length > 0) {
-        term.writeln(" ".repeat(maxBeginDateLength + 4) + "|");
-        term.writeln(" ".repeat(maxBeginDateLength + 4) + "|    Notions: " + education.tags.join(", "));
+        term.writeln(" ".repeat(maxBeginDateLength + 4) + BLUE + BOLD + "|" + RESET);
+        term.writeln(" ".repeat(maxBeginDateLength + 4) + BLUE + BOLD + "|    "+ RESET+ ITALIC + education.tags.join(", "));
       }
-      term.writeln(" ".repeat(maxBeginDateLength + 4) + "|");
+      term.writeln(" ".repeat(maxBeginDateLength + 4) + BLUE + BOLD + "|" + RESET);
     }
-    term.writeln(" ".repeat(maxBeginDateLength + 4) + "|");
-    term.writeln(" ".repeat(maxBeginDateLength + 4) + "▼");
+    term.writeln(" ".repeat(maxBeginDateLength + 4) + BLUE + BOLD + "|" + RESET);
+    term.writeln(" ".repeat(maxBeginDateLength + 4) + BLUE + BOLD + "▼");
     term.writeln("");
     return null;
   }
@@ -169,29 +172,29 @@ let commands = [
 
     let maxBeginDateLength = Math.max(...experiences.map(exp => exp.date.begin.length));
 
-    term.writeln(" ".repeat(maxBeginDateLength + 4) + "|");
-    for (let experience of experiences.reverse()) {
-      term.writeln(" ".repeat(maxBeginDateLength + 4) + "|");
+    term.writeln(" ".repeat(maxBeginDateLength + 4) + BLUE + BOLD + "|" + RESET);
+    for (let experience of experiences.toReversed()) {
+      term.writeln(" ".repeat(maxBeginDateLength + 4) + BLUE + BOLD + "|" + RESET);
       let beginDate = experience.date.begin;
       let endDate = experience.date.end;
       if (endDate === "") {
         endDate = "now";
       }
-      term.writeln(" ".repeat(maxBeginDateLength - beginDate.length + 1) + beginDate + " - o -> " + endDate);
-      term.writeln(" ".repeat(maxBeginDateLength + 4) + "|");
+      term.writeln(" ".repeat(maxBeginDateLength - beginDate.length + 1) + YELLOW + BOLD + beginDate + RESET + YELLOW +  " - " + BLUE + BOLD + "o " + RESET + YELLOW + "-> " + BOLD + endDate + RESET);
+      term.writeln(" ".repeat(maxBeginDateLength + 4) + BLUE + BOLD + "|" + RESET);
 
-      term.writeln(" ".repeat(maxBeginDateLength + 4) + "|    " + experience.company);
-      term.writeln(" ".repeat(maxBeginDateLength + 4) + "|    " + experience.name);
-      term.writeln(" ".repeat(maxBeginDateLength + 4) + "|");
+      term.writeln(" ".repeat(maxBeginDateLength + 4) + BLUE + BOLD + "|    " + RESET + BLUE + BOLD + experience.company);
+      term.writeln(" ".repeat(maxBeginDateLength + 4) + BLUE + BOLD + "|    " + RESET + experience.name);
+      term.writeln(" ".repeat(maxBeginDateLength + 4) + BLUE + BOLD + "|" + RESET);
       for(let description of experience.descriptions) {
-        term.writeln(" ".repeat(maxBeginDateLength + 4) + "|    " + description);
+        term.writeln(" ".repeat(maxBeginDateLength + 4) + BLUE + BOLD + "|    " + RESET + description);
       }
-      term.writeln(" ".repeat(maxBeginDateLength + 4) + "|");
-      term.writeln(" ".repeat(maxBeginDateLength + 4) + "|    Stack: " + experience.tags.join(", "));
-      term.writeln(" ".repeat(maxBeginDateLength + 4) + "|");
+      term.writeln(" ".repeat(maxBeginDateLength + 4) + BLUE + BOLD + "|" + RESET);
+      term.writeln(" ".repeat(maxBeginDateLength + 4) + BLUE + BOLD + "|    " + RESET + ITALIC + experience.tags.join(", "));
+      term.writeln(" ".repeat(maxBeginDateLength + 4) + BLUE + BOLD + "|" + RESET);
     }
-    term.writeln(" ".repeat(maxBeginDateLength + 4) + "|");
-    term.writeln(" ".repeat(maxBeginDateLength + 4) + "▼");
+    term.writeln(" ".repeat(maxBeginDateLength + 4) + BLUE + BOLD + "|" + RESET);
+    term.writeln(" ".repeat(maxBeginDateLength + 4) + BLUE + BOLD + "▼" + RESET);
     term.writeln("");
 
     return null;
