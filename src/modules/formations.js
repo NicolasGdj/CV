@@ -1,5 +1,15 @@
 module.exports = [
   {
+    name: "Machine Learning Specialization",
+    description: "Stanford Online & DeepLearning.AI",
+    date: {
+      begin: "2026",
+      end: "2026"
+    },
+    tags: ["Supervised AI Algorithms", "Unsupervised AI Algorithms"],
+    mentions: []
+  },
+  {
     name: "ENSIMAG",
     description: "Alternance (HPE)",
     date: {

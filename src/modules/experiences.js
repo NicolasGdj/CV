@@ -9,7 +9,7 @@ module.exports = [
     descriptions: [
       "Développement d'une Network Function 5G responsable de la gestion des données utilisateurs",
     ],
-    tags: ["Java", "Java Spring Boot", "Maven", "Bash", "Kubernetes", "Jira"],
+    tags: ["Java", "Github Copilot", "Java Spring Boot", "Maven", "Bash", "Kubernetes", "Go", "Jira"],
   },
   {
     name: "Ingénieur en développement logiciel Senior",
